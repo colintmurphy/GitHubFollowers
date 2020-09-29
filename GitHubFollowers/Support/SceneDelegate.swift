@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         configureNavigationBar()
     }
     
-    func configureNavigationBar() {
+    private func configureNavigationBar() {
         UINavigationBar.appearance().tintColor = .systemGreen
     }
 

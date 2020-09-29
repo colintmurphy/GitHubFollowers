@@ -134,18 +134,9 @@ class NetworkManager {
  
 EDUCATIONAL NOTES:
     - This class is a Singleton
-    - Child ViewController > UIView
-        - get Lifecycle Methods: viewDidLoad...
-        - self contained: can present and can drive the logic
-        - flexible context: can be pushed on a nav controller
-    - "static let shared = NetworkManager()" static so every NetworkManager will have this variable on it (Singleton remember)
     - "NSCache<NSString, UIImage>()" takes in a <key, value> pair: similar to a dictionary
         - fun fact: NS stands for Next Step, "Next" as in Steve Job's old company
     - "completed: @escaping (Result<[Follower], ErrorMessage>) -> Void)": "Result<>":  gets rid of optionals, and makes views that call this func easier to read/handle
-    - "response.statusCode == 200": status code 200 means everything is OK from the web response
-    - @escaping: closers are either escaping or non-escaping:
-        - escaping can outlive the function, used for async stuff. The completed() call in the func will be used elsewhere, so it needs to live longer
-        - non-escaping does NOT outlive the function
     - "decoder.dateDecodingStrategy = .iso8601": iso8601 is a standard date format which our API uses (and a lot of others use as well): "yyyy-MM-dd'T'HH:mm:ssZ"
         - this essentially does what our "convertToDate()" did in our String extension, so old code using that func was removed
 */

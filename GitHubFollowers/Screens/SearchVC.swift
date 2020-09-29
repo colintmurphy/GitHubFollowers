@@ -12,11 +12,11 @@ class SearchVC: UIViewController {
     
     // MARK: - Variables
     
-    let logoImageView       = UIImageView()
-    let usernameTextField   = GFTextField()
-    let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    private let logoImageView       = UIImageView()
+    private let usernameTextField   = GFTextField()
+    private let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
-    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
+    private var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
     
     // MARK: - View Life Cycles
     
@@ -40,7 +40,7 @@ class SearchVC: UIViewController {
     
     // MARK: - Actions
     
-    @objc func pushFollowerListVC() {
+    @objc private func pushFollowerListVC() {
         
         guard isUsernameEntered else {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😃.", buttonTitle: "Ok")
@@ -54,13 +54,13 @@ class SearchVC: UIViewController {
     
     // MARK: - Configure
     
-    func createDismissKeyboardTapGesture() {
+    private func createDismissKeyboardTapGesture() {
         
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
-    func configureLogoImageView() {
+    private func configureLogoImageView() {
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = Images.ghLogo
@@ -75,7 +75,7 @@ class SearchVC: UIViewController {
         ])
     }
     
-    func configureTextField() {
+    private func configureTextField() {
         
         usernameTextField.delegate = self /// set delegate, so we listen to the extension below
         
@@ -87,7 +87,7 @@ class SearchVC: UIViewController {
         ])
     }
     
-    func configureCallToActionButton() {
+    private func configureCallToActionButton() {
         
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         

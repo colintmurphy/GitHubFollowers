@@ -12,16 +12,17 @@ class GFItemInfoVC: UIViewController {
     
     // MARK: - Variables
     
-    let stackView       = UIStackView()
-    let itemInfoViewOne = GFItemInfoView()
-    let itemInfoViewTwo = GFItemInfoView()
-    let actionButton    = GFButton()
+    private let stackView   = UIStackView()
+    let itemInfoViewOne     = GFItemInfoView()
+    let itemInfoViewTwo     = GFItemInfoView()
+    let actionButton        = GFButton()
     
     var user: User!
     
     // MARK: - Inits
     
     init(user: User) {
+        
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }

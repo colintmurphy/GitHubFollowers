@@ -32,10 +32,5 @@ extension UIViewController {
 /*
 EDUCATIONAL NOTES:
     - "import UIKit": includes Foundation, importing both is redundant
-    - "fileprivate var containerView: UIView!" -> fileprivate: anything in this file can use this variable
-        - old code used this, but containerView was refactored to GFDataLoadingVC
-    - "DispatchQueue.main.async": quick way to throw things on the Main Thread
-        - illegal to call a View when not on the main thread (Cannot do it from a background thread)
-    - extensions: can't create variables in them
 */
 

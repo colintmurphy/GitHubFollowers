@@ -12,8 +12,8 @@ class FavoritesListVC: GFDataLoadingVC {
     
     // MARK: - Variables
     
-    let tableview = UITableView()
-    var favorites: [Follower] = []
+    private let tableview = UITableView()
+    private var favorites: [Follower] = []
     
     // MARK: - View Life Cycles
     
@@ -32,7 +32,7 @@ class FavoritesListVC: GFDataLoadingVC {
     
     // MARK: - Get Favorites
     
-    func getFavorites() {
+    private func getFavorites() {
         
         PersistenceManager.retrieveFavorites { [weak self] (result) in
             guard let self = self else { return }
@@ -48,7 +48,7 @@ class FavoritesListVC: GFDataLoadingVC {
     
     // MARK: - Update UI
     
-    func updateUI(with favorites: [Follower]) {
+    private func updateUI(with favorites: [Follower]) {
         
         if favorites.isEmpty {
             self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen.", in: self.view)
@@ -64,14 +64,14 @@ class FavoritesListVC: GFDataLoadingVC {
     
     // MARK: - Configure
     
-    func configureViewController() {
+    private func configureViewController() {
         
         view.backgroundColor    = .systemBackground
         title                   = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         
         view.addSubview(tableview)
         tableview.frame         = view.bounds /// fill the whole view

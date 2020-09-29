@@ -11,6 +11,7 @@ import UIKit
 class GFTitleLabel: UILabel {
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         configure()
     }
@@ -20,12 +21,14 @@ class GFTitleLabel: UILabel {
     }
     
     convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+        
         self.init(frame: .zero) /// calls the init above
         self.textAlignment = textAlignment /// do self. bc they have the same names here
         font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
     }
     
     private func configure() {
+        
         textColor                   = .label
         adjustsFontSizeToFitWidth   = true
         minimumScaleFactor          = 0.9

@@ -12,18 +12,19 @@ class GFUserInfoHeaderVC: UIViewController {
     
     // MARK: - Variables
     
-    let avatarImageView     = GFAvatarImageView(frame: .zero)
-    let usernameLabel       = GFTitleLabel(textAlignment: .left, fontSize: 34)
-    let nameLabel           = GFSecondaryTitleLabel(fontSize: 18)
-    let locationImageView   = UIImageView()
-    let locationLabel       = GFSecondaryTitleLabel(fontSize: 18)
-    let bioLabel            = GFBodyLabel(textAlignment: .left)
+    private let avatarImageView     = GFAvatarImageView(frame: .zero)
+    private let usernameLabel       = GFTitleLabel(textAlignment: .left, fontSize: 34)
+    private let nameLabel           = GFSecondaryTitleLabel(fontSize: 18)
+    private let locationImageView   = UIImageView()
+    private let locationLabel       = GFSecondaryTitleLabel(fontSize: 18)
+    private let bioLabel            = GFBodyLabel(textAlignment: .left)
     
-    var user: User!
+    private var user: User!
     
     // MARK: - Inits
     
     init(user: User) {
+        
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
@@ -44,7 +45,7 @@ class GFUserInfoHeaderVC: UIViewController {
     
     // MARK: - Configure
     
-    func configureUIElements() {
+    private func configureUIElements() {
         
         avatarImageView.downloadImage(fromUrl: user.avatarUrl)
         usernameLabel.text          = user.login
@@ -57,7 +58,7 @@ class GFUserInfoHeaderVC: UIViewController {
         locationImageView.tintColor = .secondaryLabel
     }
     
-    func layoutUI() {
+    private func layoutUI() {
         
         let padding: CGFloat = 20
         let textImagePadding: CGFloat = 12

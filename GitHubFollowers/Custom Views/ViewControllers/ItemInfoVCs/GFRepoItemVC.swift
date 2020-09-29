@@ -26,11 +26,13 @@ class GFRepoItemVC: GFItemInfoVC {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         configureItems()
     }
     
     private func configureItems() {
+        
         itemInfoViewOne.set(itemInfoType: .repos, withCount: user.publicRepos)
         itemInfoViewTwo.set(itemInfoType: .gists, withCount: user.publicGists)
         actionButton.set(backgroundColor: .systemPurple, title: "GitHub Profile")
@@ -44,8 +46,6 @@ class GFRepoItemVC: GFItemInfoVC {
 /*
 EDUCATIONAL NOTES:
     - child class here
-    - delegate's need to be weak to prevent the retain cycle
-    - delegates & protocols: 1-to-1 communication, game of pass along
     - delegate is located here bc this is where the calls happen (not the super class)
 */
 

@@ -18,7 +18,7 @@ struct Follower: Codable, Hashable {
 /*
  
 EDUCATIONAL NOTES:
-    - in termal can do curl https.... and we can see what the data looks like
+    - in terminal can do curl https.... and we can see what the data looks like
     - Hashable added for the UICollectionView
     - Codable: when using them our variable names must match whats in the data structure
         - don't need to have everything, just creating a struct of what we want to obtain

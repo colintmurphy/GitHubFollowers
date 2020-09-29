@@ -16,16 +16,16 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     
     // MARK: - Variables
     
-    var username: String!
-    var followers: [Follower]           = []
-    var filteredFollowers: [Follower]   = []
-    var page                            = 1
-    var hasMoreFollowers                = true
-    var isSearching                     = false
-    var isLoadingMoreFollowers          = false
+    private var username: String!
+    private var followers: [Follower]           = []
+    private var filteredFollowers: [Follower]   = []
+    private var page                            = 1
+    private var hasMoreFollowers                = true
+    private var isSearching                     = false
+    private var isLoadingMoreFollowers          = false
     
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
     // MARK: - Inits
     
@@ -60,7 +60,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     
     // MARK: - Load Info
     
-    func getFollowers(username: String, page: Int) {
+    private func getFollowers(username: String, page: Int) {
         
         showLoadingView()
         isLoadingMoreFollowers = true
@@ -80,7 +80,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         }
     }
     
-    func updateUI(with followers: [Follower]) {
+    private func updateUI(with followers: [Follower]) {
         
         if followers.count < 100 { self.hasMoreFollowers = false }
         self.followers.append(contentsOf: followers)
@@ -93,7 +93,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         self.updateData(on: self.followers)
     }
     
-    func updateData(on followers: [Follower]) {
+    private func updateData(on followers: [Follower]) {
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
@@ -101,7 +101,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    @objc func addButtonTapped() {
+    @objc private func addButtonTapped() {
         
         showLoadingView()
         NetworkManager.shared.getUserInfo(for: username) { [weak self] results in
@@ -118,7 +118,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         }
     }
     
-    func addUserToFavorites(user: User) {
+    private func addUserToFavorites(user: User) {
         
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
         PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] (error) in
@@ -134,7 +134,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     
     // MARK: - Configure
     
-    func configureViewController() {
+    private func configureViewController() {
         
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -143,7 +143,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     }
     
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
@@ -152,7 +152,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
-    func configureSearchController() {
+    private func configureSearchController() {
         
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
@@ -160,7 +160,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         navigationItem.searchController = searchController
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             

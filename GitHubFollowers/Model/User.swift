@@ -26,8 +26,6 @@ struct User: Codable {
 /*
  
 EDUCATIONAL NOTES:
-    - "var name: String?": optional bc person might not have name set
     - "let createdAt: Date": Date type bc of the user of .iso8601 in the decoder (does String -> Date for us)
- 
 */
 

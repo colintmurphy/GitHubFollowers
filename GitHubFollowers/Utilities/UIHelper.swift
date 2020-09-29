@@ -30,6 +30,5 @@ enum UIHelper {
 EDUCATIONAL NOTES:
     - all white text and ... no green... this usually means this can be put somewhere other than the VC
     - func made static so things can reach it
- 
 */
 

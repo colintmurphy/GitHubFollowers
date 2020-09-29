@@ -11,6 +11,7 @@ import UIKit
 class GFBodyLabel: UILabel {
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         configure()
     }
@@ -20,11 +21,13 @@ class GFBodyLabel: UILabel {
     }
     
     convenience init(textAlignment: NSTextAlignment) {
+        
         self.init(frame: .zero)
         self.textAlignment = textAlignment
     }
     
     private func configure() {
+        
         textColor                           = .secondaryLabel
         font                                = UIFont.preferredFont(forTextStyle: .body) /// gives Dynamic type for font
         adjustsFontForContentSizeCategory   = true

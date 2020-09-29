@@ -10,11 +10,12 @@ import UIKit
 
 class FollowerCell: UICollectionViewCell {
     
-    static let reuseID  = "FollowerCell"
-    let avatarImageView = GFAvatarImageView(frame: .zero)
-    let usernameLabel   = GFTitleLabel(textAlignment: .center, fontSize: 16)
+    static let reuseID          = "FollowerCell"
+    private let avatarImageView = GFAvatarImageView(frame: .zero)
+    private let usernameLabel   = GFTitleLabel(textAlignment: .center, fontSize: 16)
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         configure()
     }
@@ -24,12 +25,14 @@ class FollowerCell: UICollectionViewCell {
     }
     
     func set(follower: Follower) {
+        
         usernameLabel.text = follower.login
         avatarImageView.downloadImage(fromUrl: follower.avatarUrl)
     }
     
     /// added for the changing cells... (cached images look great, loading ones change around... possibly noticeable bc i'm on a slow network)
     override func prepareForReuse() {
+        
         super.prepareForReuse()
         avatarImageView.image = Images.placeholder
     }

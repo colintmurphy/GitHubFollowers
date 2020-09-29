@@ -15,7 +15,7 @@
 		2171B9BA24AE6635008CC959 /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171B9B924AE6635008CC959 /* GFAlertContainerView.swift */; };
 		2171B9BC24AE6CDF008CC959 /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171B9BB24AE6CDF008CC959 /* GFDataLoadingVC.swift */; };
 		2171B9BE24AE9299008CC959 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171B9BD24AE9299008CC959 /* UIView+Ext.swift */; };
-		2171B9C024AE9C18008CC959 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171B9BF24AE9C18008CC959 /* UITableView+Ext.swift */; };
+		21A715532523F27900ABA998 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A715522523F27900ABA998 /* UITableView+Ext.swift */; };
 		21B0098D24AA681D004DE483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0098C24AA681D004DE483 /* AppDelegate.swift */; };
 		21B0098F24AA681D004DE483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0098E24AA681D004DE483 /* SceneDelegate.swift */; };
 		21B0099624AA681E004DE483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B0099524AA681E004DE483 /* Assets.xcassets */; };
@@ -56,7 +56,7 @@
 		2171B9B924AE6635008CC959 /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
 		2171B9BB24AE6CDF008CC959 /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
 		2171B9BD24AE9299008CC959 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		2171B9BF24AE9C18008CC959 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		21A715522523F27900ABA998 /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		21B0098924AA681D004DE483 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0098C24AA681D004DE483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B0098E24AA681D004DE483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				21643DE524AD68CC009AB0CA /* String+Ext.swift */,
 				21643DE324AD68B0009AB0CA /* Date+Ext.swift */,
 				2171B9BD24AE9299008CC959 /* UIView+Ext.swift */,
-				2171B9BF24AE9C18008CC959 /* UITableView+Ext.swift */,
+				21A715522523F27900ABA998 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,10 +191,10 @@
 		21B009B624AA9019004DE483 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				21B0098C24AA681D004DE483 /* AppDelegate.swift */,
-				21B0098E24AA681D004DE483 /* SceneDelegate.swift */,
 				21B0099524AA681E004DE483 /* Assets.xcassets */,
 				21B0099724AA681E004DE483 /* LaunchScreen.storyboard */,
+				21B0098C24AA681D004DE483 /* AppDelegate.swift */,
+				21B0098E24AA681D004DE483 /* SceneDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -372,6 +372,7 @@
 				21CA464424AC0814009D1CC7 /* GFItemInfoVC.swift in Sources */,
 				21CA464024ABFCE9009D1CC7 /* Constants.swift in Sources */,
 				21B00A7724AB14B4004DE483 /* GFAvatarImageView.swift in Sources */,
+				21A715532523F27900ABA998 /* UITableView+Ext.swift in Sources */,
 				21B009A324AA6DB1004DE483 /* FavoritesListVC.swift in Sources */,
 				21B009AF24AA8726004DE483 /* GFAlertVC.swift in Sources */,
 				21CA464824AC0C57009D1CC7 /* GFFollowerItemVC.swift in Sources */,
@@ -382,7 +383,6 @@
 				21B00A2124AAE079004DE483 /* ErrorMessage.swift in Sources */,
 				21CA463C24ABF6FD009D1CC7 /* GFUserInfoHeaderVC.swift in Sources */,
 				21B009AD24AA8668004DE483 /* GFBodyLabel.swift in Sources */,
-				2171B9C024AE9C18008CC959 /* UITableView+Ext.swift in Sources */,
 				21B00A1924AAD2D3004DE483 /* Follower.swift in Sources */,
 				2171B9BA24AE6635008CC959 /* GFAlertContainerView.swift in Sources */,
 				21B009AB24AA84E2004DE483 /* GFTitleLabel.swift in Sources */,

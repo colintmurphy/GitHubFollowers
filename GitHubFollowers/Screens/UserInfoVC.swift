@@ -20,13 +20,13 @@ class UserInfoVC: UIViewController {
     
     // MARK: - Variables
     
-    let scrollView = UIScrollView()
-    let contentView = UIView() /// needed for scrollView
-    let headerView = UIView()
-    let itemViewOne = UIView()
-    let itemViewTwo = UIView()
-    let dateLabel = GFBodyLabel(textAlignment: .center)
-    var itemViews: [UIView] = []
+    private let scrollView  = UIScrollView()
+    private let contentView = UIView() /// needed for scrollView
+    private let headerView  = UIView()
+    private let itemViewOne = UIView()
+    private let itemViewTwo = UIView()
+    private let dateLabel   = GFBodyLabel(textAlignment: .center)
+    private var itemViews: [UIView] = []
     
     var username: String!
     weak var delegate: UserInfoListVCDelegate!
@@ -44,14 +44,14 @@ class UserInfoVC: UIViewController {
     
     // MARK: - Configure
     
-    func configureViewController() {
+    private func configureViewController() {
         
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
     }
     
-    func configureScrollView() {
+    private func configureScrollView() {
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -66,7 +66,7 @@ class UserInfoVC: UIViewController {
         ])
     }
     
-    func getUserInfo() {
+    private func getUserInfo() {
         
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
@@ -81,7 +81,7 @@ class UserInfoVC: UIViewController {
         }
     }
     
-    func configureUIElements(with user: User) {
+    private func configureUIElements(with user: User) {
         
         self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
         self.add(childVC: GFFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
@@ -89,7 +89,7 @@ class UserInfoVC: UIViewController {
         self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
     }
     
-    func layoutUI() {
+    private func layoutUI() {
         
         let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
@@ -121,7 +121,7 @@ class UserInfoVC: UIViewController {
         ])
     }
     
-    func add(childVC: UIViewController, to containerView: UIView) {
+    private func add(childVC: UIViewController, to containerView: UIView) {
         
         addChild(childVC)
         containerView.addSubview(childVC.view)
@@ -129,7 +129,7 @@ class UserInfoVC: UIViewController {
         childVC.didMove(toParent: self)
     }
     
-    @objc func dismissVC() {
+    @objc private func dismissVC() {
         dismiss(animated: true)
     }
 }

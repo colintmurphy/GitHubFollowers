@@ -12,16 +12,16 @@ class GFAlertVC: UIViewController {
     
     // MARK: - Variables
     
-    let containerView   = GFAlertContainerView()
-    let titleLabel      = GFTitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel    = GFBodyLabel(textAlignment: .center)
-    let actionButton    = GFButton(backgroundColor: .systemPink, title: "Ok")
+    private let containerView   = GFAlertContainerView()
+    private let titleLabel      = GFTitleLabel(textAlignment: .center, fontSize: 20)
+    private let messageLabel    = GFBodyLabel(textAlignment: .center)
+    private let actionButton    = GFButton(backgroundColor: .systemPink, title: "Ok")
     
-    var alertTitle: String?
-    var message: String?
-    var buttonTitle: String?
+    private var alertTitle: String?
+    private var message: String?
+    private var buttonTitle: String?
     
-    let padding: CGFloat = 20
+    private let padding: CGFloat = 20
     
     // MARK: - Inits
     
@@ -53,7 +53,7 @@ class GFAlertVC: UIViewController {
     
     // MARK: - Configure
     
-    func configureContainerView() {
+    private func configureContainerView() {
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -63,7 +63,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         
         titleLabel.text = alertTitle ?? "Something went wrong"
         
@@ -75,7 +75,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    func configureActionButton() {
+    private func configureActionButton() {
         
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
@@ -88,7 +88,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    func configureMessageLabel() {
+    private func configureMessageLabel() {
         
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
@@ -101,7 +101,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    @objc func dismissVC() {
+    @objc private func dismissVC() {
         dismiss(animated: true)
     }
 }

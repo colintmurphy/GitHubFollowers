@@ -10,10 +10,11 @@ import UIKit
 
 class GFEmptyStateView: UIView {
     
-    let messageLabel = GFTitleLabel(textAlignment: .center, fontSize: 28)
-    let logoImageView = UIImageView()
+    private let messageLabel    = GFTitleLabel(textAlignment: .center, fontSize: 28)
+    private let logoImageView   = UIImageView()
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         configure()
     }
@@ -23,6 +24,7 @@ class GFEmptyStateView: UIView {
     }
     
     convenience init(message: String) {
+        
         self.init(frame: .zero)
         messageLabel.text = message
     }
