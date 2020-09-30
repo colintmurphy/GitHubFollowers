@@ -10,7 +10,7 @@
 ## Images
 
 <p align="center">
-  <img src="https://github.com/colintmurphy/GitHubFollowers/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-09-25%20at%2013.27.42.png" height="600" />
+  <img src="https://github.com/colintmurphy/GitHubFollowers/blob/master/images/ezgif.com-gif-maker%20(3).gif" height="600" />
   <img src="https://github.com/colintmurphy/GitHubFollowers/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-09-25%20at%2013.27.53.png" height="600" />
   <img src="https://github.com/colintmurphy/GitHubFollowers/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-09-25%20at%2013.27.57.png" height="600" />
   <img src="https://github.com/colintmurphy/GitHubFollowers/blob/master/images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-09-25%20at%2013.28.16.png" height="600" />
