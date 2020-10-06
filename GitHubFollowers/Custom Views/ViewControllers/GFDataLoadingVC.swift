@@ -17,7 +17,7 @@ class GFDataLoadingVC: UIViewController {
         containerView = UIView(frame: view.bounds)
         view.addSubview(containerView)
         containerView.backgroundColor = .systemBackground
-        containerView.alpha = 0.0 /// starting as invisible bc want to fade in w/ animation
+        containerView.alpha = 0.0 // starting as invisible bc want to fade in w/ animation
         UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -26,7 +26,7 @@ class GFDataLoadingVC: UIViewController {
         
         NSLayoutConstraint.activate([
             activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ])
         activityIndicator.startAnimating()
     }
@@ -46,4 +46,3 @@ class GFDataLoadingVC: UIViewController {
         view.addSubview(emptyStateView)
     }
 }
-

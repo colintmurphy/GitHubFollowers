@@ -32,7 +32,7 @@ class NetworkManager {
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
+            if error != nil {
                 completed(.failure(.unableToComplete))
                 return
             }
@@ -69,7 +69,7 @@ class NetworkManager {
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
+            if error != nil {
                 completed(.failure(.unableToComplete))
                 return
             }
@@ -140,4 +140,3 @@ EDUCATIONAL NOTES:
     - "decoder.dateDecodingStrategy = .iso8601": iso8601 is a standard date format which our API uses (and a lot of others use as well): "yyyy-MM-dd'T'HH:mm:ssZ"
         - this essentially does what our "convertToDate()" did in our String extension, so old code using that func was removed
 */
-

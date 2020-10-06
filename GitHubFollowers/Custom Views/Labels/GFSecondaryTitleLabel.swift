@@ -35,4 +35,3 @@ class GFSecondaryTitleLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
-

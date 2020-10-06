@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - UserInfoListVCDelegate
 
-protocol UserInfoListVCDelegate: class {
+protocol UserInfoListVCDelegate: AnyObject {
     func didRequestFollowers(for username: String)
 }
 
@@ -21,7 +21,7 @@ class UserInfoVC: UIViewController {
     // MARK: - Variables
     
     private let scrollView  = UIScrollView()
-    private let contentView = UIView() /// needed for scrollView
+    private let contentView = UIView() // needed for scrollView
     private let headerView  = UIView()
     private let itemViewOne = UIView()
     private let itemViewTwo = UIView()
@@ -59,7 +59,7 @@ class UserInfoVC: UIViewController {
         scrollView.pinToEdges(of: view)
         contentView.pinToEdges(of: scrollView)
         
-        ///contentView needs to know a width and height when using scrollView
+        //contentView needs to know a width and height when using scrollView
         NSLayoutConstraint.activate([
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 600)

@@ -18,5 +18,4 @@ extension Date {
     }
 }
 
-/// visit: https://www.nsdateformatter.com for date formats
-
+// visit: https://www.nsdateformatter.com for date formats

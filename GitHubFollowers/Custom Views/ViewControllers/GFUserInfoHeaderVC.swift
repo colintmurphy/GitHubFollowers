@@ -38,7 +38,7 @@ class GFUserInfoHeaderVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.addSubviews(avatarImageView, usernameLabel ,nameLabel, locationImageView ,locationLabel ,bioLabel)
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         layoutUI()
         configureUIElements()
     }
@@ -80,7 +80,7 @@ class GFUserInfoHeaderVC: UIViewController {
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            /// pin location image and location label next to each other
+            // pin location image and location label next to each other
             locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
             locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
             locationImageView.widthAnchor.constraint(equalToConstant: 20),
@@ -98,4 +98,3 @@ class GFUserInfoHeaderVC: UIViewController {
         ])
     }
 }
-

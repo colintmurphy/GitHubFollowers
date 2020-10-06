@@ -8,6 +8,8 @@
 
 import UIKit
 
+enum Constants { }
+
 enum SFSymbols {
     
     static let location     = UIImage(systemName: "mappin.and.ellipse")
@@ -51,4 +53,3 @@ enum DeviceTypes {
         return isiPhoneX || isiPhoneXsMaxAndXr
     }
 }
-

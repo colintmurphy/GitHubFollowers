@@ -90,4 +90,3 @@ EDUCATIONAL NOTES:
     - UserDefaults purpose: data persistence throughout the app (on all views)
         - have to encode & decode anything thats a custom object, when saving to UserDefaults
 */
-

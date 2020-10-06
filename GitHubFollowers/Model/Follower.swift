@@ -14,7 +14,6 @@ struct Follower: Codable, Hashable {
     var avatarUrl: String
 }
 
-
 /*
  
 EDUCATIONAL NOTES:
@@ -29,4 +28,3 @@ EDUCATIONAL NOTES:
                 hasher.combine(login)
             }
 */
-

@@ -28,4 +28,3 @@ struct User: Codable {
 EDUCATIONAL NOTES:
     - "let createdAt: Date": Date type bc of the user of .iso8601 in the decoder (does String -> Date for us)
 */
-

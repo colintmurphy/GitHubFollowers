@@ -27,8 +27,8 @@ class GFTextField: UITextField {
         layer.borderWidth           = 2
         layer.borderColor           = UIColor.systemGray4.cgColor
         
-        textColor                   = .label /// black on light mode, white on dark mode
-        tintColor                   = .label /// blinking cursor color
+        textColor                   = .label // black on light mode, white on dark mode
+        tintColor                   = .label // blinking cursor color
         textAlignment               = .center
         font                        = UIFont.preferredFont(forTextStyle: .title2)
         adjustsFontSizeToFitWidth   = true
@@ -42,4 +42,3 @@ class GFTextField: UITextField {
         placeholder                 = "Enter a username"
     }
 }
-

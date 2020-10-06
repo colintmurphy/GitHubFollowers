@@ -29,7 +29,7 @@ class GFBodyLabel: UILabel {
     private func configure() {
         
         textColor                           = .secondaryLabel
-        font                                = UIFont.preferredFont(forTextStyle: .body) /// gives Dynamic type for font
+        font                                = UIFont.preferredFont(forTextStyle: .body) // gives Dynamic type for font
         adjustsFontForContentSizeCategory   = true
         adjustsFontSizeToFitWidth           = true
         minimumScaleFactor                  = 0.75
@@ -37,4 +37,3 @@ class GFBodyLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
-

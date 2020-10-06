@@ -34,12 +34,13 @@ class FavoritesListVC: GFDataLoadingVC {
     
     private func getFavorites() {
         
-        PersistenceManager.retrieveFavorites { [weak self] (result) in
+        PersistenceManager.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let favorites):
                 self.updateUI(with: favorites)
+                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
@@ -57,7 +58,7 @@ class FavoritesListVC: GFDataLoadingVC {
             
             DispatchQueue.main.async {
                 self.tableview.reloadData()
-                self.view.bringSubviewToFront(self.tableview) /// bring table on top, just incase empty state shows
+                self.view.bringSubviewToFront(self.tableview) // bring table on top, just incase empty state shows
             }
         }
     }
@@ -74,7 +75,7 @@ class FavoritesListVC: GFDataLoadingVC {
     private func configureTableView() {
         
         view.addSubview(tableview)
-        tableview.frame         = view.bounds /// fill the whole view
+        tableview.frame         = view.bounds // fill the whole view
         tableview.rowHeight     = 80
         tableview.delegate      = self
         tableview.dataSource    = self
@@ -106,7 +107,7 @@ extension FavoritesListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableview.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as! FavoriteCell
+        guard let cell = tableview.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as? FavoriteCell else { fatalError("couldn't create FavoriteCell") }
         cell.set(favorite: favorites[indexPath.row])
         return cell
     }
@@ -115,7 +116,7 @@ extension FavoritesListVC: UITableViewDataSource {
         
         guard editingStyle == .delete else { return }
         
-        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] (error) in
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             guard let error = error else {
                 self.favorites.remove(at: indexPath.row)

@@ -39,12 +39,12 @@ class GFEmptyStateView: UIView {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150), /// move 150 up from the center
+            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150), // move 150 up from the center
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             messageLabel.heightAnchor.constraint(equalToConstant: 200),
             
-            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3), /// make width of image 30% larger than the screen
+            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3), // make width of image 30% larger than the screen
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
             logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)

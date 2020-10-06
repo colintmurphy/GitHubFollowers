@@ -84,5 +84,4 @@ class GFItemInfoVC: UIViewController {
     }
 }
 
-/// super class here
-
+// super class here

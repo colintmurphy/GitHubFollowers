@@ -6,7 +6,7 @@
 //  Copyright © 2020 Colin Murphy. All rights reserved.
 //
 
-/// code commented bc "decoder.dateDecodingStrategy = .iso8601" does work for us (String -> Date), but could be useful in future
+// code commented bc "decoder.dateDecodingStrategy = .iso8601" does work for us (String -> Date), but could be useful in future
 
 /*
 import UIKit
@@ -29,4 +29,3 @@ extension String {
     }
 }
  */
-

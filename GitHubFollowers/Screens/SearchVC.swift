@@ -16,14 +16,17 @@ class SearchVC: UIViewController {
     private let usernameTextField   = GFTextField()
     private let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
-    private var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
+    private var isUsernameEntered: Bool {
+        guard let username = usernameTextField.text else { return true }
+        return !username.isEmpty
+    }
     
     // MARK: - View Life Cycles
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground /// white for light, black for dark
+        view.backgroundColor = .systemBackground // white for light, black for dark
         view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         configureLogoImageView()
         configureTextField()
@@ -33,7 +36,7 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        super.viewWillAppear(animated) /// call parent to get the functionality
+        super.viewWillAppear(animated) // call parent to get the functionality
         usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -48,7 +51,8 @@ class SearchVC: UIViewController {
         }
         usernameTextField.resignFirstResponder()
         
-        let followerListVC = FollowerListVC(username: usernameTextField.text!)
+        guard let username = usernameTextField.text  else { return }
+        let followerListVC = FollowerListVC(username: username)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
@@ -77,7 +81,7 @@ class SearchVC: UIViewController {
     
     private func configureTextField() {
         
-        usernameTextField.delegate = self /// set delegate, so we listen to the extension below
+        usernameTextField.delegate = self // set delegate, so we listen to the extension below
         
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),

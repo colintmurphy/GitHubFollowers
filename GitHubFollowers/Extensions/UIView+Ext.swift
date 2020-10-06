@@ -21,10 +21,9 @@ extension UIView {
             topAnchor.constraint(equalTo: superview.topAnchor),
             leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor),
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ])
     }
 }
 
-/// Variadic Parameter: can pass in any number of items for the given type "..."
-
+// Variadic Parameter: can pass in any number of items for the given type "..."

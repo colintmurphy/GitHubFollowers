@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GFRepoItemVCDelegate: class {
+protocol GFRepoItemVCDelegate: AnyObject {
     func didTapGitHubProfile(for user: User)
 }
 
@@ -48,4 +48,3 @@ EDUCATIONAL NOTES:
     - child class here
     - delegate is located here bc this is where the calls happen (not the super class)
 */
-

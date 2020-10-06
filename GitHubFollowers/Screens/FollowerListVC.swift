@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
+class FollowerListVC: GFDataLoadingVC { // inherit functions from this class
     
     // MARK: - Section enum
     
@@ -112,6 +112,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
             switch results {
             case .success(let user):
                 self.addUserToFavorites(user: user)
+                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
@@ -121,7 +122,7 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     private func addUserToFavorites(user: User) {
         
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] (error) in
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
             
             guard let self = self else { return }
             guard let error = error else {
@@ -142,7 +143,6 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
         navigationItem.rightBarButtonItem = addButton
     }
     
-    
     private func configureCollectionView() {
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
@@ -162,12 +162,12 @@ class FollowerListVC: GFDataLoadingVC { /// inherit functions from this class
     
     private func configureDataSource() {
         
-        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView) { collectionView, indexPath, follower -> UICollectionViewCell? in
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseID, for: indexPath) as? FollowerCell else { fatalError("couldn't create FollowerCell") }
             cell.set(follower: follower)
             return cell
-        })
+        }
     }
 }
 
@@ -177,12 +177,12 @@ extension FollowerListVC: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-        let offsetY         = scrollView.contentOffset.y /// y coordinate
-        let contentHeight   = scrollView.contentSize.height /// the entire scrollView (everything, all cells)
-        let height          = scrollView.frame.size.height /// height of screen
+        let offsetY         = scrollView.contentOffset.y // y coordinate
+        let contentHeight   = scrollView.contentSize.height // the entire scrollView (everything, all cells)
+        let height          = scrollView.frame.size.height // height of screen
         
-        if offsetY > contentHeight - height { /// if at the bottom
-            guard hasMoreFollowers, !isLoadingMoreFollowers else { return } /// make sure more followers aren't currently in loading process
+        if offsetY > contentHeight - height { // if at the bottom
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return } // make sure more followers aren't currently in loading process
             
             page += 1
             getFollowers(username: username, page: page)
@@ -207,11 +207,11 @@ extension FollowerListVC: UICollectionViewDelegate {
 
 extension FollowerListVC: UISearchResultsUpdating {
     
-    func updateSearchResults(for searchController: UISearchController)  {
+    func updateSearchResults(for searchController: UISearchController) {
         
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             filteredFollowers.removeAll()
-            updateData(on: followers) /// when text empty, want to use all of followers
+            updateData(on: followers) // when text empty, want to use all of followers
             isSearching = false
             return
         }

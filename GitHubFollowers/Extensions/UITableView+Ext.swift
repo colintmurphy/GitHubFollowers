@@ -21,5 +21,4 @@ extension UITableView {
     */
 }
 
-/// "reloadDataOnMainThread()": if using TableViews often... can be useful bc if reloading table on network call; need to be on main thread for a call like this
-
+// "reloadDataOnMainThread()": if using TableViews often... can be useful bc if reloading table on network call; need to be on main thread for a call like this
